@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to PDF Converter</title>
+    <link rel="stylesheet" href="img_to_pdf.css"> <!-- Link to the external CSS file -->
+</head>
+
+<body>
+    <section class="content">
+        <h1>Image To Pdf Converter</h1>
+        <input type="file" id="imageInput" accept="image/*">
+        <br>
+        <button id="convertBtn">Convert to PDF</button>
+
+        <canvas id="imageCanvas"></canvas>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script src="img_to_pdf.js"></script>
+    </section>
+</body>
+
+</html>

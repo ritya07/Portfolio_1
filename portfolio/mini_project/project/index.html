@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyTools - Professional Tools Made Easy</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <i data-lucide="wrench"></i>
+                    <span>EazzyTools</span>
+
+                </div>
+
+                <div class="search-container">
+                    <img class="icon" src="img/icon.png" alt="">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search Here...">
+
+                </div>
+
+                <div class="nav-links" id="navLinks">
+                    <a href="index.html">Home</a>
+                    <a href="tools.html">Tools</a>
+                    <a href="aboutus.html">About Us</a>
+                    <a href="login_signup.html" class="login-btn">
+                        <i data-lucide="user"></i>
+                        <span>Login</span>
+                    </a>
+                </div>
+
+                <button class="menu-btn" id="menuBtn">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+
+
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="index.html">Home</a>
+                <a href="tools.html">Tools</a>
+                <a href="aboutus.html">About</a>
+                <a href="login_signup.html">Login</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Professional Tools Made Easy</h1>
+                <p>Access powerful tools to enhance your productivity</p>
+                <button class="cta-btn">Get Started</button>
+            </div>
+        </section>
+
+        <!-- Tools Grid -->
+        <div class="card-container">
+            <div class="card">
+                <img src="img/calci.jpg" alt="" srcset="">
+                <div class="card-content">
+                    <h3>Calculator</h3>
+                    <p>A calculator tool designed to simplify complex computations and improve productivity.</p>
+                    <a href="calculator.html" class="btn">Click Here</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="img/speech1.png">
+                <div class="card-content">
+                    <h3>Speech To Text</h3>
+                    <p>This powerful tool uses advanced voice recognition technology to deliver accurate and real-time
+                        transcriptions.</p>
+                    <a href="speech_to_text.html" class="btn">Click Here</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="img/jpg.jpg">
+                <div class="card-content">
+                    <h3>Jpg to PDF</h3>
+                    <p>To convert any image to pdf format.
+
+                    </p> <br> <br>
+                    <a href="img_to_pdf.html" class="btn">Click Here</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-container">
+            <div class="card">
+                <img src="img/cc.webp" alt="" srcset="">
+                <div class="card-content">
+                    <h3>Currency Converter</h3>
+                    <p>To know the price of our currency in other countries.</p>
+                    <a href="Currency_converter.html" class="btn">Click Here</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="img/qq.jpg">
+                <div class="card-content">
+                    <h3>QR code generator</h3>
+                    <p>To create QR code for any link and text. <br> <br></p>
+                    <a href="QR_code.html" class="btn">Click Here</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="img/pp.jpg">
+                <div class="card-content">
+                    <h3>Percentage calculator</h3>
+                    <p>To calculate percentage using your marks. <br> <br> <br></p>
+                    <a href="p_calculator.html" class="btn">Click Here</a>
+                </div>
+            </div>
+        </div>
+        <!-- Login Section -->
+        <section id="login" class="login-section">
+            <div class="login-container">
+                <div class="login-box">
+                    <div class="login-header">
+                        <h2>Feedback Form</h2>
+                        <p>Please give us informative feedback</p>
+                    </div>
+                    <form id="loginForm" class="login-form" action="https://formspree.io/f/xeoqvkrb" method="POST">
+                        <div class="form-group">
+                            <div class="input-icon">
+                                <i data-lucide="user"></i>
+                                <input type="email" id="email" name="email" required placeholder="Email address">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-icon">
+                                <i data-lucide="lock"></i>
+                                <input type="text" id="meassage" name="message" required placeholder="message">
+                            </div>
+                        </div>
+                        <button type="submit" class="submit-btn">Send</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <i data-lucide="wrench"></i>
+                        <span>EasyTools</span>
+                    </div>
+                    <p>Making professional tools accessible to everyone.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="tools.html">Tools</a></li>
+                        <li><a href="aboutus.html">About</a></li>
+                        <li><a href="login_signup.html">Login</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>support@easytools.com</li>
+                        <li>1-800-EASY-TOOL</li>
+                        <li>123 Tool Street</li>
+                        <li>Toolville, TO 12345</li>
+                    </ul>
+                </div>
+
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i data-lucide="github"></i></a>
+                        <a href="#"><i data-lucide="twitter"></i></a>
+                        <a href="#"><i data-lucide="linkedin"></i></a>
+                        <a href="#"><i data-lucide="instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span>2024 EasyTools. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

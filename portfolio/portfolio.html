@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Ritesh Mali — Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Ritesh Mali — Web Developer, DSA enthusiast. Projects, experience and contact."
+    />
+    <style>
+      /* ---------- Theme variables ---------- */
+      :root {
+        --bg: #f7f9fc;
+        --surface: #ffffff;
+        --muted: #6b7280;
+        --text: #0f172a;
+        --primary: #1a73e8;
+        --glass: rgba(255, 255, 255, 0.6);
+        --card-shadow: 0 8px 30px rgba(16, 24, 40, 0.06);
+        --radius: 12px;
+        --container: 1100px;
+        --accent: #06b6d4;
+      }
+      [data-theme="dark"] {
+        --bg: #0b1220;
+        --surface: #0f1724;
+        --muted: #94a3b8;
+        --text: #e6eef8;
+        --primary: #90caf9;
+        --glass: rgba(255, 255, 255, 0.03);
+        --card-shadow: 0 10px 40px rgba(2, 6, 23, 0.6);
+        --accent: #34d399;
+      }
+
+      /* ---------- Reset & layout ---------- */
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      body {
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+          Roboto, "Helvetica Neue", Arial;
+        background: var(--bg);
+        color: var(--text);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        transition: background 0.25s, color 0.25s;
+        line-height: 1.5;
+      }
+      a {
+        color: var(--primary);
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .container {
+        width: clamp(320px, 92%, var(--container));
+        margin: 0 auto;
+        padding: 28px 16px;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        background: color-mix(in oklab, var(--surface) 88%, transparent);
+        backdrop-filter: blur(6px) saturate(120%);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        z-index: 40;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 10px 0;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        box-shadow: var(--card-shadow);
+      }
+      nav ul {
+        display: flex;
+        gap: 12px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      nav a {
+        padding: 8px 12px;
+        border-radius: 8px;
+        color: var(--muted);
+        font-weight: 600;
+      }
+      nav a.active,
+      nav a:hover {
+        color: var(--text);
+        background: var(--glass);
+      }
+
+      /* ---------- Hero ---------- */
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 380px;
+        gap: 28px;
+        align-items: center;
+        padding: 42px 0;
+      }
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+      }
+      .hero-left h1 {
+        font-size: clamp(1.6rem, 3.6vw, 2.6rem);
+        margin: 0;
+      }
+      .tag {
+        display: inline-flex;
+        gap: 8px;
+        align-items: center;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: var(--glass);
+        color: var(--muted);
+        font-weight: 700;
+      }
+      .lead {
+        margin: 14px 0;
+        color: var(--muted);
+      }
+      .cta {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 14px;
+        border-radius: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        background: linear-gradient(
+          180deg,
+          var(--primary),
+          color-mix(in oklab, var(--primary) 80%, black)
+        );
+        color: white;
+        font-weight: 700;
+      }
+      .btn.ghost {
+        background: transparent;
+        color: var(--text);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      .hero-right .card {
+        padding: 18px;
+        border-radius: 14px;
+        background: var(--surface);
+        box-shadow: var(--card-shadow);
+      }
+      .stat {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 8px 0;
+      }
+      .stat strong {
+        font-size: 1.05rem;
+      }
+
+      /* ---------- Sections ---------- */
+      section {
+        margin: 34px 0;
+      }
+      .section-title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 0 0 14px 0;
+      }
+      .section-title h2 {
+        margin: 0;
+        font-size: 1.25rem;
+      }
+
+      /* Skills */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      @media (max-width: 700px) {
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .skill {
+        background: var(--surface);
+        padding: 12px;
+        border-radius: 12px;
+        box-shadow: var(--card-shadow);
+      }
+      .skill .meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .bar {
+        height: 10px;
+        background: linear-gradient(
+          90deg,
+          color-mix(in oklab, var(--primary) 20%, transparent),
+          var(--accent)
+        );
+        border-radius: 999px;
+      }
+
+      /* Projects */
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 16px;
+      }
+      .project {
+        background: var(--surface);
+        border-radius: 12px;
+        padding: 14px;
+        box-shadow: var(--card-shadow);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        transition: transform 0.28s;
+      }
+      .project:hover {
+        transform: translateY(-8px);
+      }
+      .proj-meta {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+      .proj-actions {
+        display: flex;
+        gap: 8px;
+        margin-top: auto;
+      }
+
+      /* Experience */
+      .timeline {
+        display: grid;
+        gap: 12px;
+      }
+      .exp {
+        background: var(--surface);
+        padding: 14px;
+        border-radius: 12px;
+        box-shadow: var(--card-shadow);
+      }
+
+      /* Contact */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 320px;
+        gap: 16px;
+      }
+      @media (max-width: 900px) {
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      form {
+        display: grid;
+        gap: 10px;
+      }
+      input,
+      textarea {
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        background: transparent;
+        color: var(--text);
+      }
+      input:focus,
+      textarea:focus {
+        outline: 2px solid color-mix(in oklab, var(--primary) 30%, transparent);
+      }
+
+      /* Footer */
+      footer {
+        margin-top: 40px;
+        padding: 20px 0;
+        text-align: center;
+        color: var(--muted);
+      }
+
+      /* ---------- Animations & Reveal ---------- */
+      [data-reveal] {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 0.5s ease,
+          transform 0.5s cubic-bezier(0.2, 0.9, 0.3, 1);
+      }
+      [data-reveal].show {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* Smooth scroll */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Small helpers */
+      .muted {
+        color: var(--muted);
+      }
+      .chip {
+        display: inline-block;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: color-mix(in oklab, var(--primary) 8%, transparent);
+        font-weight: 700;
+        color: var(--primary);
+      }
+    </style>
+  </head>
+  <body>
+    <header aria-label="Main header">
+      <div class="container nav">
+        <div class="brand">
+          <div class="logo" aria-hidden></div>
+          <div>
+            <div style="font-weight: 800">Ritesh Mali</div>
+            <div style="font-size: 12px; color: var(--muted)">
+              Web Developer · DSA · Problem Solver
+            </div>
+          </div>
+        </div>
+
+        <nav aria-label="Primary navigation">
+          <ul>
+            <li><a href="#about" class="navlink">About</a></li>
+            <li><a href="#skills" class="navlink">Skills</a></li>
+            <li><a href="#projects" class="navlink">Projects</a></li>
+            <li><a href="#experience" class="navlink">Experience</a></li>
+            <li><a href="#contact" class="navlink">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div style="display: flex; gap: 10px; align-items: center">
+          <button
+            id="themeBtn"
+            aria-pressed="false"
+            title="Toggle theme"
+            class="chip"
+          >
+            Toggle
+          </button>
+          <a class="chip" href="B85_ritesh_mali_final.pdf" download>Resume</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- HERO -->
+      <section class="hero" aria-labelledby="intro" data-reveal>
+        <div class="hero-left">
+          <div class="tag">Open to Internships · Freelance</div>
+          <h1 id="intro">Hi, I'm Ritesh 👋</h1>
+          <p class="lead">
+            I build clean, accessible web applications and tools. I love solving
+            problems with efficient algorithms and pragmatic engineering.
+          </p>
+          <div class="cta">
+            <a class="btn" href="#projects">View Projects</a>
+            <a class="btn ghost" href="#contact">Get in touch</a>
+          </div>
+        </div>
+
+        <aside class="hero-right" aria-label="Highlights">
+          <div class="card" style="border-radius: 14px; padding: 14px">
+            <div class="stat">
+              <span class="muted">Primary Stack</span
+              ><strong>HTML · CSS · JS · MySQL</strong>
+            </div>
+            <div class="stat">
+              <span class="muted">Currently</span
+              ><strong>Preparing for Placement · Building portfolio</strong>
+            </div>
+            <div class="stat">
+              <span class="muted">Location</span
+              ><strong>Pune / Kolhapur (Open to remote)</strong>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" data-reveal>
+        <div class="section-title">
+          <h2>About</h2>
+          <span class="muted">— Short bio</span>
+        </div>
+        <p>
+          Computer Science student focused on web development, data structures &
+          algorithms. I enjoy shipping small tools and improving user experience
+          through performance and accessibility.
+        </p>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills" data-reveal>
+        <div class="section-title">
+          <h2>Skills</h2>
+          <span class="muted">— Technical stack</span>
+        </div>
+        <div class="skills-grid">
+          <div class="skill" aria-label="Programming languages">
+            <div class="meta">
+              <strong>Programming</strong
+              ><span class="muted">C++ · JavaScript · SQL</span>
+            </div>
+            <div
+              style="
+                height: 8px;
+                margin-top: 10px;
+                background: rgba(0, 0, 0, 0.04);
+                border-radius: 999px;
+                overflow: hidden;
+              "
+            >
+              <div class="bar" style="width: 78%"></div>
+            </div>
+          </div>
+          <div class="skill" aria-label="Web stack">
+            <div class="meta">
+              <strong>Web & Tools</strong
+              ><span class="muted">HTML · CSS · React (Intermediate)</span>
+            </div>
+            <div
+              style="
+                height: 8px;
+                margin-top: 10px;
+                background: rgba(0, 0, 0, 0.04);
+                border-radius: 999px;
+                overflow: hidden;
+              "
+            >
+              <div class="bar" style="width: 72%"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" data-reveal>
+        <div class="section-title">
+          <h2>Projects</h2>
+          <span class="muted">— Selected work</span>
+        </div>
+        <div class="projects">
+          <article class="project" role="article" aria-labelledby="p1">
+            <div
+              style="
+                height: 150px;
+                background: linear-gradient(
+                  135deg,
+                  var(--primary),
+                  var(--accent)
+                );
+                border-radius: 8px;
+              "
+            ></div>
+            <h3 id="p1">Ezzy Tools</h3>
+            <p class="muted">
+              A multipurpose web app with a calculator, QR generator,
+              image-to-PDF, and other small utilities. Built with HTML, CSS, JS,
+              PHP.
+            </p>
+            <div class="proj-meta">
+              <span>Full‑stack</span><span>Team project</span>
+            </div>
+            <div class="proj-actions">
+              <a class="btn ghost" href="mini_project/project/index.html"
+                >Live</a
+              >
+            </div>
+          </article>
+
+          <article class="project" role="article" aria-labelledby="p2">
+            <div
+              style="
+                height: 150px;
+                background: linear-gradient(135deg, #f59e0b, #f97316);
+                border-radius: 8px;
+              "
+            ></div>
+            <h3 id="p2">E‑commerce Website</h3>
+            <p class="muted">
+              Internship project: product listings, cart, authentication, and
+              admin features. Focused on performance and deployment.
+            </p>
+            <div class="proj-meta"><span>HTML · JS · MySQL</span></div>
+            <div class="proj-actions">
+              <a class="btn ghost" href="Seminar/index.html">Live</a>
+            </div>
+          </article>
+
+          <article class="project" role="article" aria-labelledby="p3">
+            <div
+              style="
+                height: 150px;
+                background: linear-gradient(135deg, #06b6d4, #0891b2);
+                border-radius: 8px;
+              "
+            ></div>
+            <h3 id="p3">Billing System</h3>
+            <p class="muted">
+              PHP & MySQL billing system for Mahalaxmi Cutpies Cloth Center.
+              Features auto-fill, meter×price calculation and printable bills.
+            </p>
+            <div class="proj-meta"><span>Solo project</span></div>
+            <div class="proj-actions">
+              <a class="btn ghost" href="bill_system_mahalaxmi/billing.html"
+                >Live</a
+              >
+            </div>
+          </article>
+
+          <article class="project" role="article" aria-labelledby="p4">
+            <div
+              style="
+                height: 150px;
+                background: linear-gradient(135deg, #7c3aed, #a78bfa);
+                border-radius: 8px;
+              "
+            ></div>
+            <h3 id="p4">Website Safety Checker</h3>
+            <p class="muted">
+              Concept prototype using React/Node and Python for link
+              classification — aims to label links as safe/risky using
+              heuristics and ML signals.
+            </p>
+            <div class="proj-meta"><span>Research & Prototype</span></div>
+            <div class="proj-actions"></div>
+          </article>
+
+          <article class="project" role="article" aria-labelledby="p5">
+            <div
+              style="
+                height: 150px;
+                background: linear-gradient(135deg, #ef4444, #fb7185);
+                border-radius: 8px;
+              "
+            ></div>
+            <h3 id="p5">Rock Paper Scissors</h3>
+            <p class="muted">
+              Interactive JavaScript game demonstrating DOM manipulation, game
+              logic and responsive UI for small interactions.
+            </p>
+            <div class="proj-meta"><span>JavaScript</span></div>
+            <div class="proj-actions">
+              <a class="btn ghost" href="Rock_Paper_Scissors-main/index.html"
+                >Play</a
+              >
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience" data-reveal>
+        <div class="section-title">
+          <h2>Experience</h2>
+          <span class="muted">— Internships</span>
+        </div>
+        <div class="timeline">
+          <div class="exp">
+            <h3>
+              Wolfox Services Pvt. Ltd.
+              <small class="muted">(Web Development Intern — 2024)</small>
+            </h3>
+            <p class="muted">
+              Built and deployed an e-commerce project, worked on performance
+              and debugging in a team environment.
+            </p>
+          </div>
+          <div class="exp">
+            <h3>
+              I Net Solutions
+              <small class="muted">(App Dev Intern — 2023)</small>
+            </h3>
+            <p class="muted">
+              Contributed to Flutter app screens and basic state management for
+              real-world apps.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" data-reveal>
+        <div class="section-title">
+          <h2>Contact</h2>
+          <span class="muted">— Let's connect</span>
+        </div>
+        <div class="contact-grid">
+          <form onsubmit="handleContact(event)">
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Your name"
+              required
+            />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="your@email.com"
+              required
+            />
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Brief message"
+              required
+            ></textarea>
+            <div style="display: flex; gap: 8px">
+              <button class="btn" type="submit">Send</button>
+              <button
+                type="button"
+                class="btn ghost"
+                onclick="location.href='mailto:your-email@example.com'"
+              >
+                Email me
+              </button>
+            </div>
+          </form>
+
+          <aside style="display: flex; flex-direction: column; gap: 12px">
+            <div class="card">
+              <strong>Email</strong>
+              <p class="muted">riteshkmali007@gmail.com</p>
+            </div>
+            <div class="card">
+              <strong>LinkedIn</strong>
+              <p class="muted">
+                <a
+                  href="https://www.linkedin.com/in/ritesh-mali-9147ba322?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app "
+                  target="_blank"
+                  >https://www.linkedin.com/in/ritesh-mali-9147ba322?</a
+                >
+              </p>
+            </div>
+            <div class="card">
+              <strong>GitHub</strong>
+              <p class="muted">
+                <a href="https://github.com/ritya07" target="_blank"
+                  >https://github.com/ritya07</a
+                >
+              </p>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <small class="muted"
+          >© <span id="year">2025</span> Ritesh Mali — Built with HTML, CSS &
+          JS</small
+        >
+      </div>
+    </footer>
+
+    <script>
+      /* ---------- Theme toggle & persistence ---------- */
+      const themeKey = "rm_theme_v1";
+      const btn = document.getElementById("themeBtn");
+      const saved = localStorage.getItem(themeKey);
+      if (saved === "dark")
+        document.documentElement.setAttribute("data-theme", "dark");
+      else document.documentElement.removeAttribute("data-theme");
+      btn.addEventListener("click", () => {
+        const cur =
+          document.documentElement.getAttribute("data-theme") === "dark"
+            ? null
+            : "dark";
+        if (cur) document.documentElement.setAttribute("data-theme", "dark");
+        else document.documentElement.removeAttribute("data-theme");
+        localStorage.setItem(themeKey, cur ? "dark" : "light");
+        btn.setAttribute("aria-pressed", cur ? "true" : "false");
+      });
+
+      /* ---------- Reveal on scroll ---------- */
+      const reveals = document.querySelectorAll("[data-reveal]");
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("show");
+          });
+        },
+        { threshold: 0.12 }
+      );
+      reveals.forEach((r) => io.observe(r));
+
+      /* ---------- Active nav link ---------- */
+      const navlinks = document.querySelectorAll(".navlink");
+      const sections = Array.from(navlinks).map((a) =>
+        document.querySelector(a.getAttribute("href"))
+      );
+      function onScroll() {
+        let idx = 0;
+        sections.forEach((s, i) => {
+          if (!s) return;
+          const r = s.getBoundingClientRect();
+          if (r.top <= 120) idx = i;
+        });
+        navlinks.forEach((a, i) => a.classList.toggle("active", i === idx));
+      }
+      document.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+
+      /* ---------- Contact fallback ---------- */
+      function handleContact(e) {
+        e.preventDefault();
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const msg = document.getElementById("message").value.trim();
+        const subject = encodeURIComponent("Portfolio contact from " + name);
+        const body = encodeURIComponent(msg + "\n\nReply to: " + email);
+        window.location.href = `mailto:riteshkmali007@gmail.com?subject=${subject}&body=${body}`;
+      }
+
+      // set year
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

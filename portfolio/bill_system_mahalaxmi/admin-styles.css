@@ -1,0 +1,160 @@
+/* General Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1d2671, #c33764);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #fff;
+}
+
+/* Main Container */
+.container {
+    background: #fff;
+    color: #333;
+    width: 90%;
+    max-width: 800px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.8s ease-in-out;
+    position: relative;
+}
+
+/* Header Styling */
+h1 {
+    margin-bottom: 500px;
+    margin-left: 100px;
+}
+
+/* Labels */
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #1d2671;
+    text-transform: uppercase;
+    margin-left: -200px;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    background: #f9f9f9;
+    transition: all 0.3s ease-in-out;
+    margin-left: -200px;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    outline: none;
+    border-color: #c33764;
+    box-shadow: 0 0 8px rgba(195, 55, 100, 0.4);
+}
+
+/* Buttons */
+button {
+    width: 48%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+    border: none;
+    border-radius: 8px;
+    margin-right: 200px;
+    cursor: pointer;
+    margin: 5px 1%;
+    transition: all 0.3s ease-in-out, transform 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.insert {
+    background: #28a745;
+    margin-left: -200px;
+}
+
+.insert:hover {
+    background: #218838;
+}
+
+.update {
+    background: #007bff;
+}
+
+.update:hover {
+    background: #0056b3;
+}
+
+.delete {
+    background: #dc3545;
+}
+
+.delete:hover {
+    background: #c82333;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th,
+table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #1d2671;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    button {
+        width: 100%;
+        margin: 10px 0;
+    }
+}

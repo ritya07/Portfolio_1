@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mahalaxmi Cutpies - Billing</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery -->
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script> <!-- jQuery UI -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css"> <!-- jQuery UI Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Mahalaxmi Cutpies Cloth Center</h1>
+    <form id="billing-form" action="generate_bill.php" method="POST">
+        <table id="cloth-table" border="1">
+            <thead>
+                <tr>
+                    <th>Cloth Name</th>
+                    <th>Price per Meter</th>
+                    <th>Meters</th>
+                    <th>Total Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input type="text" class="cloth_name" name="cloth_name[]" required>
+                    </td>
+                    <td>
+                        <input type="text" class="cloth_price" name="cloth_price[]" readonly>
+                    </td>
+                    <td>
+                        <input type="number" class="cloth_meter" name="cloth_meter[]" min="1"
+                            oninput="calculateRowTotal(this)" required>
+                    </td>
+                    <td>
+                        <input type="text" class="row_total_price" name="row_total_price[]" readonly>
+                    </td>
+                    <td>
+                        <button type="button" onclick="removeRow(this)">Remove</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" onclick="addRow()">Add Cloth</button>
+        <br><br>
+        <label for="grand_total">Grand Total:</label>
+        <input type="text" id="grand_total" name="grand_total" readonly required>
+        <br><br>
+        <button type="submit">Print Bill</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

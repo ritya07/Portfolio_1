@@ -1,0 +1,99 @@
+body {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background-image: url(img/back.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 20px;
+}
+
+h1 {
+  color: #333;
+}
+
+#l1 {
+
+  margin-top: 12%;
+}
+
+#l3 {
+  margin-top: 10%;
+}
+
+.form-container {
+  width: 25%;
+  height: 340px;
+  margin-left: 37%;
+  display: flex;
+  justify-content: space-around;
+
+}
+
+form {
+  border-radius: 5px;
+  padding: 20px;
+  width: 300px;
+}
+
+h2 {
+  font-size: large;
+  margin-top: 1;
+  color: #333;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+}
+
+.button {
+  height: 45px;
+  padding: 15px 25px;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #000000;
+  background-color: rgb(192, 213, 212);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 3px 5px #999;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.l2 {
+  margin-top: 20px;
+}

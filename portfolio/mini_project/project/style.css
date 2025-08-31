@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-left,
+.navbar-center,
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-left .logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.navbar-left .brand-name {
+    font-size: 20px;
+    color: #fff;
+}
+
+.navbar-center .search-bar {
+    width: 300px;
+    padding: 8px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    transition: width 0.4s ease;
+}
+
+.navbar-center .search-bar:focus {
+    width: 400px;
+}
+
+.navbar-right .profile-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar-right .profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar-right .profile-icon:hover {
+    transform: rotate(360deg);
+}
+
+@media (max-width: 768px) {
+    .navbar-center .search-bar {
+        width: 200px;
+    }
+
+    .navbar-center .search-bar:focus {
+        width: 250px;
+    }
+}
